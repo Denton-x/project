@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Smart Home Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: aqua;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 20px;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: #1e293b;
+            padding: 20px;
+            border-radius: 15px;
+            width: 200px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #38bdf8;
+        }
+
+        .icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .status {
+            margin: 15px 0;
+        }
+
+        .status-value.on {
+            color: #22c55e; /* green */
+        }
+
+        .status-value.off {
+            color: #ef4444; /* red */
+        }
+
+        button {
+            padding: 10px 15px;
+            background: #38bdf8;
+            border: none;
+            border-radius: 8px;
+            color: black;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #0ea5e9;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LIGHT -->
+    <div class="card">
+        <div class="icon">💡</div>
+        <h3>LIGHT</h3>
+        <div class="status">
+            <span class="status-label">Status:</span>
+            <span class="status-value on">ON</span>
+        </div>
+        <button class="toggle-btn">PRESS TO CHANGE</button>
+    </div>
+
+    <!-- FAN -->
+    <div class="card">
+        <div class="icon">🌀</div>
+        <h3>FAN</h3>
+        <div class="status">
+            <span class="status-label">Status:</span>
+            <span class="status-value off">OFF</span>
+        </div>
+        <button class="toggle-btn">PRESS TO CHANGE</button>
+    </div>
+
+    <!-- AIR CONDITIONER -->
+    <div class="card">
+        <div class="icon">❄️</div>
+        <h3>AIR CONDITIONER</h3>
+        <div class="status">
+            <span class="status-label">Status:</span>
+            <span class="status-value on">ON</span>
+        </div>
+        <button class="toggle-btn">PRESS TO CHANGE</button>
+    </div>
+
+    <!-- TELEVISION -->
+    <div class="card">
+        <div class="icon">📺</div>
+        <h3>TELEVISION</h3>
+        <div class="status">
+            <span class="status-label">Status:</span>
+            <span class="status-value off">OFF</span>
+        </div>
+        <button class="toggle-btn">PRESS TO CHANGE</button>
+    </div>
+
+    <!-- SOCKET -->
+    <div class="card">
+        <div class="icon">🔌</div>
+        <h3>SOCKET</h3>
+        <div class="status">
+            <span class="status-label">Status:</span>
+            <span class="status-value on">ON</span>
+        </div>
+        <button class="toggle-btn">PRESS TO CHANGE</button>
+    </div>
+
+<script>
+    // Select all toggle buttons
+    const buttons = document.querySelectorAll('.toggle-btn');
+
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const card = btn.parentElement;
+            const status = card.querySelector('.status-value');
+
+            if(status.textContent === 'ON') {
+                status.textContent = 'OFF';
+                status.classList.remove('on');
+                status.classList.add('off');
+            } else {
+                status.textContent = 'ON';
+                status.classList.remove('off');
+                status.classList.add('on');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
